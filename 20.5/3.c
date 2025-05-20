@@ -1,5 +1,6 @@
 /*
  *sort according to the alphanumeric value of first letter of each word
+ *do not consider the upper case
 */
 
 #include <stdio.h>
@@ -17,7 +18,7 @@ void merge(char str[][10], int st, int mid, int en) {
     
     int i = 0, j = 0, k = st;
     while (i < n1 && j < n2) {
-        if (a[i][0] <= b[j][0]) 
+        if ((a[i][0] < 'a' && a[i][0] + 32 <= b[j][0]) || (b[i][0] < 'a' && a[i][0] <= b[j][0] + 32))
             strcpy(str[k++], a[i++]);
         else 
             strcpy(str[k++], b[j++]);
@@ -40,7 +41,7 @@ void mergeSort(char str[][10], int st, int en) {
 }
 
 int main() {
-    char str[][10] = {"eabc", "bcd", "cde", "def"};
+    char str[][10] = {"Eabc", "bcd", "Acde", "def"};
     int n = sizeof(str) / sizeof(str[0]);
     mergeSort(str, 0, n - 1);
     for (int i = 0; i < n; i++) {

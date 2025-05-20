@@ -1,3 +1,7 @@
+
+/*
+ *merge sort according to alphanumeric value
+*/
 #include <stdio.h>
 #include <string.h>
 
