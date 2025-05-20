@@ -3,6 +3,7 @@
 
 void merge(char str[][10], int st, int mid, int en) {
     int n1 = mid - st + 1, n2 = en - mid;
+    
     char a[n1][10], b[n2][10];
     for (int i = 0; i < n1; i++)
         strcpy(a[i], str[st + i]);
