@@ -18,7 +18,7 @@ void merge(char str[][10], int st, int mid, int en) {
     
     int i = 0, j = 0, k = st;
     while (i < n1 && j < n2) {
-        if ((a[i][0] < 'a' && a[i][0] + 32 <= b[j][0]) || (b[i][0] < 'a' && a[i][0] <= b[j][0] + 32))
+        if ((a[i][0] < 'a' && a[i][0] + 32 <= b[j][0]) || (b[j][0] < 'a' && a[i][0] <= b[j][0] + 32) || (b[j][0] < 'a' && a[i][0] < 'a' && a[i][0] <= b[j][0]))
             strcpy(str[k++], a[i++]);
         else 
             strcpy(str[k++], b[j++]);
